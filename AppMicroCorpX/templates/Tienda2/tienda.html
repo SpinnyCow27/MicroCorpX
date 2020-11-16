@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <link  rel="icon"   href="../Img/faviconxbox.ico" type="image/png"/>
+  <link  rel="icon"   href="{% static 'img/faviconxbox.ico' %}" type="image/png"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -58,14 +59,14 @@
               <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
-                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../index2.html">PÁGINA PRINCIPAL</a>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index2">PÁGINA PRINCIPAL</a>
                       </li>
-                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="tienda.html">TIENDA</a>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/tienda">TIENDA</a>
                       </li>
-                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="../contacto.html">CONTACTO</a>
+                      <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">CONTACTO</a>
                       </li>
                       <li>
-                          <span class="tamano"><a class="nav-link" href="../login.html"><i class="far fa-user"></i> Iniciar Sesión</a></span>
+                          <span class="tamano"><a class="nav-link" href="/login"><i class="far fa-user"></i> Iniciar Sesión</a></span>
                       </li>
                   </ul>
               </div>
