@@ -25,4 +25,5 @@ def registro(request):
 def login(request):
    return render(request, 'Principal/login.html', {'title':'login'})
 
-   
+def tienda(request):
+   return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
