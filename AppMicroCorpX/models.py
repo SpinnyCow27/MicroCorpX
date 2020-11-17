@@ -24,6 +24,8 @@ class Cliente(models.Model):
     mail_cli = models.EmailField()
     direccion_cli = models.CharField(max_length=200)
     telefono_cli = models.CharField(max_length=16)
+    usuario_cli = models.CharField(max_length=150)
+    password_cli = models.CharField(max_length=128)
 #    id_tipo_usuario_fk = models.ForeignKey('Tipo_usuario', on_delete=models.CASCADE)
     class Meta:
         db_table = "cliente"
@@ -36,18 +38,18 @@ class Cliente(models.Model):
 #    tu_nombre = models.CharField(max_length=40)
 
 #TABLA ADMINISTRADOR
-class Administrador(models.Model):
+#class Administrador(models.Model):
     #El Autofield es un autoincremento
-    id_adm = models.AutoField(primary_key=True)
-    rut_adm = models.CharField(max_length=13)
-    nombre_adm = models.CharField(max_length=25)
-    apellido_adm = models.CharField(max_length=35)
-    mail_adm = models.EmailField()
-    direccion_adm = models.CharField(max_length=200)
-    telefono_adm = models.CharField(max_length=16)
+#    id_adm = models.AutoField(primary_key=True)
+#    rut_adm = models.CharField(max_length=13)
+#    nombre_adm = models.CharField(max_length=25)
+#    apellido_adm = models.CharField(max_length=35)
+#    mail_adm = models.EmailField()
+#    direccion_adm = models.CharField(max_length=200)
+#    telefono_adm = models.CharField(max_length=16)
 #    id_tipo_usuario_fk = models.ForeignKey('Tipo_usuario', on_delete=models.CASCADE)
-    class Meta:
-        db_table = "administrador"
+#    class Meta:
+#        db_table = "administrador"
 
 
 #TABLA DE PRODUCTO
@@ -58,7 +60,6 @@ class Producto(models.Model):
     descripcion = models.TextField()
     stock = models.IntegerField()
     id_genero_producto_fk = models.ForeignKey('Genero_producto', on_delete=models.CASCADE)
-    id_adm_fk = models.ForeignKey('Administrador', on_delete=models.CASCADE)
     class Meta:
         db_table = "producto"
 

@@ -18,8 +18,8 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from AppMicroCorpX import views
+from django.contrib.auth import views as auth_views
 
-#from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,8 +28,14 @@ urlpatterns = [
     path('registro/', views.registro, name="registro"),
     path('login/', views.login, name="login"),
     path('index2/', views.index2, name="index2"),
-    path('tienda', views.tienda, name='tienda')
+    path('tienda', views.tienda, name='tienda'),
 
+    #Password Reset
+    #urls actualizar password
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='password_reset.html'), name="password_reset"),
+    path('password_reset_done/', auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), name="password_reset_done"),
+    path('password_reset_confirm/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), name="password_reset_confirm"),
+    path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name="password_reset_complete"),
 
 
 ]
