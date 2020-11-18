@@ -27,3 +27,5 @@ def login(request):
 
 def tienda(request):
    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
+
+
