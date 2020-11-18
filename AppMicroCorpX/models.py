@@ -59,6 +59,7 @@ class Producto(models.Model):
     precio = models.IntegerField()
     descripcion = models.TextField()
     stock = models.IntegerField()
+    url = models.CharField(max_length=500)
     id_genero_producto_fk = models.ForeignKey('Genero_producto', on_delete=models.CASCADE)
     class Meta:
         db_table = "producto"
