@@ -1,5 +1,5 @@
 from django import forms
-import models
+from AppMicroCorpX.models import Cliente, Venta, Venta_producto, Producto, Genero_producto, Comprobante_pago, Tipo_pago 
 from django.forms import ModelForm
 #Para el formulario
 from django.contrib.auth.forms import UserCreationForm
@@ -67,30 +67,42 @@ class ClienteForm(forms.ModelForm):
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username','email','password1','password2']
-        widgets = {
-            'username': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese un Usuario'
-                }
-            ),
-            'email': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese un Correo'
-                }
-            ),
-            'password1': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese una Contraseña'
-                }
-            )
-            'password2': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Ingrese Nuevamente la Contraseña'
-                }
-            )
-        }
+        fields = ['first_name','last_name','username','email','password1','password2']
+#        widgets = {
+#            'first_name': forms.TextInput(
+#                attrs={
+#                    'class': 'form-control',
+#                    'placeholder': 'Ingrese su Nombre'
+#                }
+#            ),
+#            'username': forms.TextInput(
+#                attrs={
+#                    'class': 'form-control',
+#                    'placeholder': 'Ingrese su Apellido'
+#                }
+#            ),
+#            'username': forms.TextInput(
+#                attrs={
+#                    'class': 'form-control',
+#                    'placeholder': 'Ingrese un Usuario'
+#                }
+#            ),
+#            'email': forms.TextInput(
+#                attrs={
+#                    'class': 'form-control',
+#                    'placeholder': 'Ingrese un Correo'
+#                }
+#            ),
+#            'password1': forms.TextInput(
+#                attrs={
+#                    'class': 'form-control',
+#                    'placeholder': 'Ingrese una Contraseña'
+#                }
+#            )
+#            'password2': forms.TextInput(
+#                attrs={
+#                    'class': 'form-control',
+#                    'placeholder': 'Ingrese Nuevamente la Contraseña'
+#                }
+#            )
+#        }

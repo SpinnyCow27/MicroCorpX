@@ -59,34 +59,30 @@
                         <h3 class="login-heading mb-4">Bienvenido! Aquí podrás Registrarte</h3>
                         <form role="form" action="#" method="POST" id="frmRegistro">
                             
-                            <div class="form-label-group" id="fgFirst_name">
-                                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Ingrese su Nombre" > 
-                                <label for="first_name">Ingrese su Nombre</label>
+
+                            <div class="form-label-group" id="fgRut">
+                                <input type="text" id="inputRut" class="form-control" placeholder="Rut" autofocus> 
+                                <label for="inputRut">Ingrese su Rut</label>
+                            </div>
+
+                            <div class="form-label-group" id="fgNombre">
+                                <input type="text" name="nombre_cli" id="nombre_cli" class="form-control" placeholder="Ingrese su Nombre" > 
+                                <label for="nombre_cli">Ingrese su Nombre</label>
                             </div>
     
-                            <div class="form-label-group" name id="fgLast_name">
-                                <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Ingrese su Apellido Paterno" >
-                                <label for="last_name">Ingrese su Apellido Paterno</label>
-                            </div>
-                            
-                            <div class="form-label-group" id="fgUsername">
-                              <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese su Nombre" > 
-                              <label for="username">Ingrese su Nombre</label>
+                            <div class="form-label-group" name id="fgApellido">
+                                <input type="text" name="apellido_cli" id="apellido_cli" class="form-control" placeholder="Ingrese su Apellido Paterno" >
+                                <label for="apellido_cli">Ingrese su Apellido Paterno</label>
+                            </div> 
+
+                            <div class="form-label-group" id="fgMail">
+                                <input type="text" name="mail_cli" id="mail_cli" class="form-control" placeholder="Ingrese su Correo" >
+                                <label for="mail_cli">Ingrese su Correo</label>
                             </div>
 
-                            <div class="form-label-group" id="fgEmail">
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Ingrese su Correo" >
-                                <label for="email">Ingrese su Correo</label>
-                            </div>
-
-                            <div class="form-label-group" id="fgPassword1">
-                              <input type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese su Contraseña" >
-                              <label for="password1">Ingrese su Contraseña</label>
-                            </div>
-
-                            <div class="form-label-group" id="fgPassword2">
-                              <input type="password" name="password2" id="password2" class="form-control" placeholder="Ingrese su Contraseña" >
-                              <label for="password2">Confirme su Contraseña</label>
+                            <div class="form-label-group" id="fgPassword">
+                              <input type="password" name="password_cli" id="password_cli" class="form-control" placeholder="Ingrese su Contraseña" >
+                              <label for="password_cli">Ingrese su Contraseña</label>
                             </div>
 
                             <!--<div class="form-label-group" id="fgFecNac">
@@ -95,7 +91,7 @@
                             </div>-->
 
                             <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Registrar</button>
-                            
+
                             <div class="centrar">
                                 <a href="javascript:history.back(1)"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"> Volver</i></a>
                             </div>
@@ -105,10 +101,7 @@
                 </div>
                 </div>
             </div>
-            </div><br><br>
-            {% for message in messages %}
-            <p>{{message}}</p>
-            {% endfor %}
+            </div>
         </div>
         <script src="dist/js/sb-admin-2.js"></script>
 
