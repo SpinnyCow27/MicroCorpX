@@ -51,7 +51,7 @@ class ClienteForm(forms.ModelForm):
             'usuario_cli': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Ingrese su Correo'
+                    'placeholder': 'Ingrese su Usuario'
                 }
             ),
             'password_cli': forms.TextInput(

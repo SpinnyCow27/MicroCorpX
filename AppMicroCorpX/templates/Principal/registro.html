@@ -1,12 +1,13 @@
+{% load static %}
 <html>
     <head>
         <meta charset= "UTF-8">
-        <link  rel="icon"   href="Img/faviconxbox.ico" type="image/png"/>
-        <link rel="stylesheet" href="Estilos/estilo.css" type="text/css">
-        <script src="jotayeison/login/bootstrap.bundle.min.js" type="text/javascript"></script>
-        <link href="jotayeison/login/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <script src="jotayeison/login/jquery.slim.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="Estilos/estilo_login.css" type="text/css">
+        <link  rel="icon"   href="{% static 'img/faviconxbox.ico' %}" type="image/png"/>
+        <link rel="stylesheet" href="{% static 'css/Principal/Estilos/estilo.css' %}" type="text/css">
+        <script src="{% static 'js/Principal/jotayeison/login/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+        <link href="{% static 'js/Principal/jotayeison/login/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="{% static 'js/Principal/jotayeison/login/jquery.slim.js' %}" type="text/javascript"></script>
+        <link rel="stylesheet" href="{% static 'css/Principal/Estilos/estilo_login.css' %}" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!--JQUERY LAST-->
         <script src="http://code.jquery.com/jquery.latest.min.js" type="text/javascript"></script>
@@ -55,39 +56,39 @@
                 <div class="container">
                     <div class="row">
                     <div class="col-md-9 col-lg-8 mx-auto">
-                        <h3 class="login-heading mb-4">Bienvenido!</h3>
+                        <h3 class="login-heading mb-4">Bienvenido! Aquí podrás Registrarte</h3>
                         <form role="form" action="#" method="POST" id="frmRegistro">
                             
 
                             <div class="form-label-group" id="fgRut">
                                 <input type="text" id="inputRut" class="form-control" placeholder="Rut" autofocus> 
-                                <label for="inputRut">Rut</label>
+                                <label for="inputRut">Ingrese su Rut</label>
                             </div>
 
                             <div class="form-label-group" id="fgNombre">
-                                <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" > 
-                                <label for="inputNombre">Nombre</label>
+                                <input type="text" name="nombre_cli" id="nombre_cli" class="form-control" placeholder="Ingrese su Nombre" > 
+                                <label for="nombre_cli">Ingrese su Nombre</label>
                             </div>
     
-                            <div class="form-label-group" id="fgApellidos">
-                                <input type="text" id="inputApellidos" class="form-control" placeholder="Apellidos" >
-                                <label for="inputApellidos">Apellidos</label>
+                            <div class="form-label-group" name id="fgApellido">
+                                <input type="text" name="apellido_cli" id="apellido_cli" class="form-control" placeholder="Ingrese su Apellido Paterno" >
+                                <label for="apellido_cli">Ingrese su Apellido Paterno</label>
                             </div> 
 
-                            <div class="form-label-group" id="fgFecNac">
+                            <div class="form-label-group" id="fgMail">
+                                <input type="text" name="mail_cli" id="mail_cli" class="form-control" placeholder="Ingrese su Correo" >
+                                <label for="mail_cli">Ingrese su Correo</label>
+                            </div>
+
+                            <div class="form-label-group" id="fgPassword">
+                              <input type="password" name="password_cli" id="password_cli" class="form-control" placeholder="Ingrese su Contraseña" >
+                              <label for="password_cli">Ingrese su Contraseña</label>
+                            </div>
+
+                            <!--<div class="form-label-group" id="fgFecNac">
                                 <input type="date" id="inputFecNac" class="form-control" placeholder="FecNac" >
                                 <label for="inputFecNac">Fecha de nacimiento</label>
-                            </div> 
-
-                            <div class="form-label-group" id="fgCorreo">
-                                <input type="text" id="inputEmail" class="form-control" placeholder="Correo" >
-                                <label for="inputEmail">Correo</label>
-                            </div>
-      
-                            <div class="form-label-group" id="fgContraseña">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" >
-                                <label for="inputPassword">Contraseña</label>
-                            </div>
+                            </div>-->
 
                             <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Registrar</button>
 
@@ -103,8 +104,20 @@
             </div>
         </div>
         <script src="dist/js/sb-admin-2.js"></script>
+
+
+
+
+
+
+
+
+
+
+        
+
         <!--<script src="js/script.js"></script> <- ESTE ES UN SCRIPT EN EL QUE ESTABAMOS TRABAJANDO-->
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
       /*Variables Pattern */  
       var namePattern = "^[a-z A-Z]{2,30}$";
       var mailPattern = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+.[a-zA-Z]{2,4}$";
@@ -206,6 +219,6 @@
           );
         }
       );   
-    </script>
+    </script>-->
     </body>
 </html>
