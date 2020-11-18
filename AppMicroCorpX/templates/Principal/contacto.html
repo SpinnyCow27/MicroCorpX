@@ -33,9 +33,23 @@
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">CONTACTO</a>
                         </li>
-                        <li>
-                            <span class="tamano"><a class="nav-link" href="login.html"><i class="far fa-user"></i> Iniciar Sesión</a></span>
+                        {% if user.is_superuser %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">ADMIN. PRODUCTOS</a>
                         </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/perfil">PERFIL</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <span class="tamano"><a class="nav-link" href="{% url 'login' %}"><i class="far fa-user"></i> Iniciar Sesión</a></span>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li>
+                            <span class="tamano"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></span>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
