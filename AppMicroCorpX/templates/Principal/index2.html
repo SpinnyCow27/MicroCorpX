@@ -37,9 +37,23 @@
                         </li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">CONTACTO</a>
                         </li>
-                        <li>
-                            <span class="tamano"><a class="nav-link" href="/login"><i class="far fa-user"></i> Iniciar Sesión</a></span>
+                        {% if user.is_superuser %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">Admin. Productos</a>
                         </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/perfil">Perfil</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <span class="tamano"><a class="nav-link" href="{% url 'login' %}"><i class="far fa-user"></i> Iniciar Sesión</a></span>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li>
+                            <span class="tamano"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></span>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -53,7 +67,11 @@
                 <img class="masthead-avatar mb-5" src="assets/img/1200px-Xbox_logo_(2019).svg.png" alt="">
                 </a>
                 <!-- Masthead Heading-->
+                {% if user.is_authenticated %}
+                <h1 class="masthead-heading mb-0">BIENVENIDO DE VUELTA! {{user.username}}</h1>
+                {% else %}
                 <h1 class="masthead-heading mb-0">BIENVENIDO DE VUELTA!</h1>
+                {% endif %}
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>

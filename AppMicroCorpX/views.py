@@ -49,25 +49,44 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
 
-def login(request):
+
+def loginPage(request):
     if request.user.is_authenticated:
-        return redirect('index2')
+        return redirect('/index2')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
 
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username = username, password=password)
 
             if user is not None:
                 login(request,user)
-                return redirect('index2')
+                return redirect('/index2')
             else:
-                messages.info(request,'Usuario o contraseña incorrectas')
-        return render(request,'Principal/login.html')
+                messages.info(request,'Usuario o password incorrecto')
+        return render(request,'Principal/loginPage.html')
+
 
 def tienda(request):
    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
+
+@login_required
+def perfil(request):
+    #user = request.GET['username']
+    return render(request, 'Principal/perfil.html')
+    #Este me trae individualmente al usuario que estoy ocupando x ID
+    #user = request.GET['username', 'first_name', 'last_name', 'email']
+    #Este me trae los datos del usuario
+    #context = {'user':user}
+    
+
+
+#@login_required(login_url='login')
+#def editar(request,id):
+#    cli = Cliente.objects.get(id_cliente=id)
+#    form = ClienteForm(instance=cli)
+#    return render(request,'edit.html', {'form':form, 'id_cliente':cli.id_cliente})
 
 
 # <<<< RANDOM >>>>
@@ -87,19 +106,37 @@ def tienda(request):
 #    return render(request, 'AppEjCrud/index.html', context)
 
 
-def loginPage(request):
-    if request.user.is_authenticated:
-        return redirect('index')
-    else:
-        if request.method == 'POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+#def loginPage(request):
+#    if request.user.is_authenticated:
+#        return redirect('index')
+#    else:
+#        if request.method == 'POST':
+#            username = request.POST.get('username')
+#            password = request.POST.get('password')
+#
+#            user = authenticate(request, username=username, password=password)
+#
+#            if user is not None:
+#                login(request,user)
+#                return redirect('index')
+#            else:
+#                messages.info(request,'Usuario o contraseña incorrectas')
+#        return render(request,'loginPage.html')
 
-            user = authenticate(request, username=username, password=password)
 
-            if user is not None:
-                login(request,user)
-                return redirect('index')
-            else:
-                messages.info(request,'Usuario o contraseña incorrectas')
-        return render(request,'login.html')
+#def login(request):
+#    if request.user.is_authenticated:
+#        return redirect('index2')
+#    else:
+#        if request.method == 'POST':
+#            username = request.POST.get('username')
+#            password = request.POST.get('password')
+#
+#            user = authenticate(request, username=username, password=password)
+#
+#            if user is not None:
+#                login(request,user)
+#                return redirect('index2')
+#            else:
+#                messages.info(request,'Usuario o contraseña incorrectas')
+#        return render(request,'Principal/login.html')

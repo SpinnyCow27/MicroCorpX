@@ -26,7 +26,9 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('contacto/', views.contacto, name="contacto"),
     path('registro/', views.registro, name="registro"),
-    path('login/', views.login, name="login"),
+    path('login/', views.loginPage, name="login"),
+    path('logout/', views.logoutUser, name='logout'),
+    path('perfil/', views.perfil, name="perfil"),
     path('index2/', views.index2, name="index2"),
     path('tienda', views.tienda, name='tienda'),
 
