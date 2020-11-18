@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.shortcuts import HttpResponse, redirect, render
 from django.views.generic.edit import FormView
 
+from AppMicroCorpX.models import *
 from django import forms
-from AppMicroCorpX.forms import CreateUserForm, ClienteForm
+from AppMicroCorpX.forms import CreateUserForm, ClienteForm, ProductoForm
 #from AppMicroCorpX.models import Cliente, Venta, Venta_producto, Producto, Genero_producto, Comprobante_pago, Tipo_pago
 
 #Imports para el manejo de usuarios
@@ -71,7 +72,7 @@ def loginPage(request):
 def tienda(request):
    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
 
-@login_required
+@login_required(login_url='login')
 def perfil(request):
     #user = request.GET['username']
     return render(request, 'Principal/perfil.html')
@@ -79,6 +80,48 @@ def perfil(request):
     #user = request.GET['username', 'first_name', 'last_name', 'email']
     #Este me trae los datos del usuario
     #context = {'user':user}
+
+@login_required
+def crea_producto(request):
+    form = ProductoForm()
+    productos = Producto.objects.all()
+
+    if request.method == 'POST':
+        print(request.POST)
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('index2')
+            except:
+                pass
+        else:
+            form = ProductoForm
+    context = {'form':form, 'productos':productos}
+    return render(request, 'Producto/crea_producto.html', context)
+
+@login_required
+def productos(request):
+    form = ProductoForm()
+    producto = Producto.objects.all()
+
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/productos')
+            except:
+                pass
+    else:
+        form = ProductoForm()
+
+    context = {'form':form, 'producto': producto}
+    return render(request, 'productos.html',context)
+
+@login_required
+def edita_producto(request):
+    return render(request, 'Producto/edita_producto.html')
     
 
 

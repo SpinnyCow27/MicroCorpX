@@ -56,21 +56,22 @@ class Cliente(models.Model):
 class Producto(models.Model):
     id_producto = models.AutoField(primary_key=True)
     nombre_producto = models.CharField(max_length=40)
-    precio = models.IntegerField()
     descripcion = models.TextField()
-    stock = models.IntegerField()
-    url = models.CharField(max_length=500)
-    id_genero_producto_fk = models.ForeignKey('Genero_producto', on_delete=models.CASCADE)
+    precio = models.IntegerField()
+    url = models.ImageField(default='not_found')
+    #stock = models.IntegerField()
+    gen_nombre = models.ForeignKey('Genero_producto', on_delete=models.CASCADE,default="")
     class Meta:
         db_table = "producto"
 
 
 #TABLA DEL GENERO DE LOS PRODUCTOS, donde si el genero es 1, puede ser accion o 2 es rpg <- ejemplo
 class Genero_producto(models.Model):
-    id_genero_producto = models.AutoField(primary_key=True)
-    gen_nombre = models.CharField(max_length=40)
+    gen_nombre = models.CharField(max_length=100)
     class Meta:
         db_table = "genero_producto"
+    def str(self):
+        return u'{0}'.format(self.gen_nombre)
 
 
 #TABLA INTERSECCIÓN DE VENTA Y PRODUCTO (VENTA_PRODUCTO)

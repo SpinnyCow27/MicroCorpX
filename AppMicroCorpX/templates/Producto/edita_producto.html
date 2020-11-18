@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Creación de Producto</title>
+    <title>Contáctanos</title>
     <link  rel="icon" href="{% static 'img/faviconxbox.ico' %}" type="image/png"/>
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
@@ -53,45 +53,6 @@
                 </ul>
             </div>
         </div>
-    </nav><br><br><br><br><br><br><br>
-    <div class="container">
-        <form method="POST" action="/crea_producto/" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="table-responsive">
-                <table>
-                    <tr>
-                        <td>Nombre del Producto: </td>
-                        <td>{{form.nombre_producto}}</td>
-                    </tr>
-                    <tr>
-                        <td>Precio del Producto: </td>
-                        <td>{{form.precio}}</td>
-                    </tr>
-                    <tr>
-                        <td>Descripción del Producto: </td>
-                        <td>{{form.descripcion}}</td>
-                    </tr>
-                    <tr>
-                        <td>Stock del Producto: </td>
-                        <td><input type="number" min="1" max="1" name="stock"></td>
-                    </tr>
-                    <tr>
-                        <td>Género del Producto</td>
-                        <!--<td><input type="number" min="1" max="3"></td>-->
-                        <td>{{form.gen_nombre}}</td>
-                    </tr>
-                    <tr>
-                        <td>Seleccionar Imagen para el juego:</td>
-                        <td>{{form.url}}</td>
-                    </tr>
-                        
-                    <tr>
-                        <td><input class="btn btn-primary" type="submit" value="Grabar"></td>
-                    </tr>
-                    
-                </table>
-            </div>
-        </form>
-    </div>
+    </nav>
 </body>
 </html>

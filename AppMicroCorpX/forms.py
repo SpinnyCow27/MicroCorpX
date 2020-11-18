@@ -62,6 +62,62 @@ class ClienteForm(forms.ModelForm):
             ),
         }
 
+#Este es para el producto
+class ProductoForm(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = '__all__'
+        #widgets = {
+        #    'nombre_producto': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese Nombre del Producto'
+        #        }
+        #    ),
+        #    'precio': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese el Precio del Producto'
+        #        }
+        #    ),
+        #    'descripcion': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese una Descripción'
+        #        }
+        #    ),
+        #    'mail_cli': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese su Dirección'
+        #        }
+        #    ),
+        #    'direccion_cli': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese su Correo'
+        #        }
+        #    ),
+        #    'telefono_cli': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese su Teléfono'
+        #        }
+        #    ),
+        #    'usuario_cli': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese su Usuario'
+        #        }
+        #    ),
+        #    'password_cli': forms.TextInput(
+        #        attrs={
+        #            'class': 'form-control',
+        #            'placeholder': 'Ingrese su Contraseña'
+        #        }
+        #    ),
+        #}
+
 
 #Este será para el administrador
 class CreateUserForm(UserCreationForm):

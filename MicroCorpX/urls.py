@@ -32,6 +32,10 @@ urlpatterns = [
     path('index2/', views.index2, name="index2"),
     path('tienda', views.tienda, name='tienda'),
 
+    #Producto
+    path('crea_producto/', views.crea_producto, name="crea_producto"),
+    path('edita_producto/', views.edita_producto, name="edita_producto"),
+
     #Password Reset
     #urls actualizar password
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='Reset_password/password_reset.html'), name="password_reset"),
