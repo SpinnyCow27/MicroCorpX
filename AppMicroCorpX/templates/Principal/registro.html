@@ -58,7 +58,7 @@
                     <div class="col-md-9 col-lg-8 mx-auto">
                         <h3 class="login-heading mb-4">Bienvenido! Aquí podrás Registrarte</h3>
                         <form role="form" action="#" method="POST" id="frmRegistro">
-                            
+                          {% csrf_token %}
                             <div class="form-label-group" id="fgFirst_name">
                                 <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Ingrese su Nombre" > 
                                 <label for="first_name">Ingrese su Nombre</label>
@@ -71,7 +71,7 @@
                             
                             <div class="form-label-group" id="fgUsername">
                               <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese su Nombre" > 
-                              <label for="username">Ingrese su Nombre</label>
+                              <label for="username">Ingrese un Usuario</label>
                             </div>
 
                             <div class="form-label-group" id="fgEmail">
@@ -99,6 +99,9 @@
                             <div class="centrar">
                                 <a href="javascript:history.back(1)"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"> Volver</i></a>
                             </div>
+                            {% for message in messages %}
+                            <p>{{message}}</p>
+                            {% endfor %}
                         </form>
                     </div>
                     </div>
@@ -106,9 +109,7 @@
                 </div>
             </div>
             </div><br><br>
-            {% for message in messages %}
-            <p>{{message}}</p>
-            {% endfor %}
+
         </div>
         <script src="dist/js/sb-admin-2.js"></script>
 
