@@ -30,31 +30,31 @@ def tienda(request):
 
 
 # <<<< RANDOM >>>>
-#def registerPage(request):
-#    if request.user.is_authenticated:
-#        return redirect('index2')
-#    else:
-#        form = CreateUserForm()
-#        if request.method == 'POST':
-#            form = CreateUserForm(request.POST)
-#            if form.is_valid():
-#                form.save()
-#                user = form.cleaned_data.get('username')
-#                messages.success(request, 'Se registró el usuario ' + user)
-#                return redirect('login')
-#        return render(request, 'registro.html', {'form':form})
-#
-#def index10(request):
-#
-#    form = ClienteForm()
-#    clientes = Cliente.objects.all()
-#
-#    if request.method == 'POST':
-#        print(request.POST)
-#        form = ClienteForm(request.POST)
-#        if form.is_valid():
-#            form.save()
-#            return redirect('index')
-#
-#    context = {'form':form, 'clientes':clientes}
-#    return render(request, 'AppEjCrud/index.html', context)
+def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('index2')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request, 'Se registró el usuario ' + user)
+                return redirect('login')
+        return render(request, 'registro.html', {'form':form})
+
+def index10(request):
+
+    form = ClienteForm()
+    clientes = Cliente.objects.all()
+
+    if request.method == 'POST':
+        print(request.POST)
+        form = ClienteForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+
+    context = {'form':form, 'clientes':clientes}
+    return render(request, 'AppEjCrud/index.html', context)
