@@ -34,8 +34,10 @@ urlpatterns = [
     path('tienda6', views.tienda6, name='tienda6'),
 
     #Producto
+    path('admin_producto', views.admin_producto, name="admin_producto"),
     path('crea_producto/', views.crea_producto, name="crea_producto"),
-    path('edita_producto/', views.edita_producto, name="edita_producto"),
+    path('edita_producto/<int:id>', views.edita_producto),
+    path('elimina_producto/<int:id>', views.elimina_producto),
 
     #Password Reset
     #urls actualizar password

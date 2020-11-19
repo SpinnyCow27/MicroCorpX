@@ -102,17 +102,36 @@ def perfil(request):
 
 @login_required(login_url='login')
 @user_passes_test((lambda u: u.is_superuser),login_url='login')
-def crea_producto(request):
+def admin_producto(request):
     form = ProductoForm()
     productos = Producto.objects.all()
-
     if request.method == 'POST':
         print(request.POST)
         form = ProductoForm(request.POST, request.FILES)
         if form.is_valid():
             try:
                 form.save()
-                return redirect('index2')
+                return redirect('admin_producto')
+            except:
+                pass
+        else:
+            form = ProductoForm
+    context = {'form':form, 'productos':productos}
+    return render(request, 'Producto/admin_producto.html', context)
+
+
+@login_required(login_url='login')
+@user_passes_test((lambda u: u.is_superuser),login_url='login')
+def crea_producto(request):
+    form = ProductoForm()
+    productos = Producto.objects.all()
+    if request.method == 'POST':
+        print(request.POST)
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('admin_producto')
             except:
                 pass
         else:
@@ -122,8 +141,18 @@ def crea_producto(request):
 
 @login_required(login_url='login')
 @user_passes_test((lambda u: u.is_superuser),login_url='login')
-def edita_producto(request):
-    return render(request, 'Producto/edita_producto.html')
+def edita_producto(request, id):
+    pro = Producto.objects.get(id_producto=id)
+    form = ProductoForm(instance=pro)
+    return render(request,'Producto/edita_producto.html', {'form':form, 'id_producto':pro.id_producto})
+
+@login_required(login_url='login')
+@user_passes_test((lambda u: u.is_superuser),login_url='login')
+def elimina_producto(request, id):
+    pro = Producto.objects.get(id_producto=id)
+    pro.delete()
+    return redirect('crea_producto')
+
 
 @login_required(login_url='login')
 def productos(request):

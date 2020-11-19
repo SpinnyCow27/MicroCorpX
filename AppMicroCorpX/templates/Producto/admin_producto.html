@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Resetear Password</title>
-    <link  rel="icon"   href="{% static 'img/faviconxbox.ico' %}" type="image/png"/>
+    <title>Creación de Producto</title>
+    <link  rel="icon" href="{% static 'img/faviconxbox.ico' %}" type="image/png"/>
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -34,7 +34,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'contacto' %}">CONTACTO</a>
                     </li>
                     {% if user.is_superuser %}
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'crea_producto' %}">ADMIN. PRODUCTOS</a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'crea_producto' %">ADMIN. PRODUCTOS</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated %}
@@ -54,12 +54,38 @@
             </div>
         </div>
     </nav><br><br><br><br><br>
-    <h3>RESETEAR PASSWORD</h3>
-    <p>Olvidó su contraseña? Ingrese su correo y le enviaremos unas instrucciones para actualizarla!</p>
-    <form method="POST">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" value="Enviar Correo">
-    </form>
+    <div class="container">
+    <center><h1><b>LISTADO DE VIDEOJUEGOS AÑADIDOS</b></h1></center>
+    <table class="table-bordered">
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>PRECIO</th>
+                <th>DESCRIPCIÓN</th>
+                <th>GÉNERO PRODUCTO</th>
+                <th>IMAGEN PRODUCTO</th>
+                <th colspan="3">ACCIONES</th>
+            </tr>
+            {% for pro in productos %}
+            <tr>
+                <td>{{pro.nombre_producto}}</td>
+                <td>${{pro.precio}}</td>
+                <td>{{pro.descripcion}}</td>
+                <td>{{pro.genero_producto}}</td>
+                <td><center><img src="/media/{{pro.url}}" width="50"></center></td>
+                <td>
+                    <a href="{% url 'crea_producto' %}"> | <i class="fas fa-plus"></i> </a>
+                </td>
+                <td>
+                    <a href="/edita_producto/{{pro.id_producto}}"> | <i class="fas fa-pencil-alt"></i> </a>
+                </td>
+                <td>
+                    <a href="/elimina_producto/{{pro.id_producto}}"> | <i class="far fa-trash-alt"></i> </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </thead>
+</table>
+</div>
 </body>
 </html>

@@ -29,7 +29,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'index2' %}">P. PRINCIPAL</a>
                     </li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'tienda' %}">TIENDA</a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'tienda6' %}">TIENDA</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'contacto' %}">CONTACTO</a>
                     </li>
@@ -90,39 +90,10 @@
                     </tr>-->
                     
                 </table>
-                <center><input class="btn btn-primary" type="submit" value="Grabar"></center>
+                <center><input class="btn btn-primary" type="submit" value="Agregar Producto"></center>
             </div>
         </form>
-    </div><br><br>
-    <div class="container">
-    <h1><b>LISTADO DE CLIENTES</b></h1>
-    <table class="table-bordered">
-    <thead>
-        <tr>
-            <th>NOMBRE</th>
-            <th>PRECIO</th>
-            <th>DESCRIPCIÓN</th>
-            <th>GÉNERO PRODUCTO</th>
-            <th>IMAGEN PRODUCTO</th>
-            <th colspan="2">ACCIONES</th>
-        </tr>
-        {% for pro in productos %}
-        <tr>
-            <td>{{pro.nombre_producto}}</td>
-            <td>${{pro.precio}}</td>
-            <td>{{pro.descripcion}}</td>
-            <td>{{pro.genero_producto}}</td>
-            <td><center><img src="/media/{{pro.url}}" width="50"></center></td>
-            <td>
-                <a href="/edit/{{cli.id_cliente}}"> | <i class="fas fa-pencil-alt"></i> | </a>
-            </td>
-            <td>
-                <a href="/delete/{{cli.id_cliente}}"> | <i class="far fa-trash-alt"></i> |</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </thead>
-</table>
+    </div>
 </div>
 </body>
 </html>

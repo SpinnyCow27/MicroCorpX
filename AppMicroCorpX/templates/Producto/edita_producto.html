@@ -29,7 +29,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index2">P. PRINCIPAL</a>
                     </li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/tienda">TIENDA</a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/tienda6">TIENDA</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">CONTACTO</a>
                     </li>
@@ -53,6 +53,48 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav><br><br><br><br><br><br><br>
+    <div class="container">
+        <form method="POST" action="/crea_producto/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="table-responsive">
+                <table class="table-striped">
+                    <tr>
+                        <td>Nombre del Producto: </td>
+                        <td>{{form.nombre_producto}}</td>
+                    </tr>
+                    <tr>
+                        <td>Precio del Producto: </td>
+                        <td>{{form.precio}}</td>
+                    </tr>
+                    <tr>
+                        <td>Descripción del Producto: </td>
+                        <td>{{form.descripcion}}</td>
+                    </tr>
+                    <tr>
+                        <td>Stock del Producto: </td>
+                        <td><input type="number" min="1" max="1" name="stock"></td>
+                    </tr>
+                    <tr>
+                        <td>Género del Producto</td>
+                        <!--<td><input type="number" min="1" max="3"></td>-->
+                        <td>{{form.genero_producto}}</td>
+                    </tr>
+                    <tr>
+                        <td>Seleccionar Imagen para el juego:</td>
+                        <td>{{form.url}}</td>
+                    </tr>
+                        
+                    <!--<tr>
+                        <td><center><input class="btn btn-primary" type="submit" value="Grabar"></center></td>
+                    </tr>-->
+                    
+                </table>
+                <center><input class="btn btn-primary" type="submit" value="Agregar Producto"></center>
+            </div>
+        </form>
+    </div><br><br>
+
+
 </body>
 </html>
