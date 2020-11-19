@@ -55,7 +55,7 @@
         </div>
     </nav><br><br><br><br><br><br><br>
     <div class="container">
-        <form method="POST" action="/crea_producto/" enctype="multipart/form-data">
+        <form method="POST" action="/modificar/{{id_producto}}" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="table-responsive">
                 <table class="table-striped">
@@ -90,7 +90,7 @@
                     </tr>-->
                     
                 </table>
-                <center><input class="btn btn-primary" type="submit" value="Agregar Producto"></center>
+                <center><input class="btn btn-primary" type="submit" value="Modificar Producto"></center>
             </div>
         </form>
     </div><br><br>

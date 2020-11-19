@@ -13,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 
+#from .filters import ProductoFilter
 
 
 
@@ -145,6 +146,19 @@ def edita_producto(request, id):
     pro = Producto.objects.get(id_producto=id)
     form = ProductoForm(instance=pro)
     return render(request,'Producto/edita_producto.html', {'form':form, 'id_producto':pro.id_producto})
+
+@login_required(login_url='login')
+@user_passes_test((lambda u: u.is_superuser),login_url='login')
+def modificar(request,id):
+    pro = Producto.objects.get(id_producto=id)
+    if request.method == 'POST':
+        print(request.POST)
+        form = ProductoForm(request.POST, instance=pro)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_producto')
+            #messages.success(request, "Cambios Realizados!")
+
 
 @login_required(login_url='login')
 @user_passes_test((lambda u: u.is_superuser),login_url='login')
