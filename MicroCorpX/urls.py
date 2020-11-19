@@ -29,6 +29,8 @@ urlpatterns = [
     path('login/', views.loginPage, name="login"),
     path('logout/', views.logoutUser, name='logout'),
     path('perfil/', views.perfil, name="perfil"),
+    path('admin_perfil/<int:id>', views.admin_perfil, name="admin_perfil"),
+    path('modificar_perfil/<int:id>', views.modificar_perfil),
     path('index2/', views.index2, name="index2"),
     path('tienda', views.tienda, name='tienda'),
     path('tienda6', views.tienda6, name='tienda6'),

@@ -159,6 +159,22 @@ def modificar(request,id):
             return redirect('admin_producto')
             #messages.success(request, "Cambios Realizados!")
 
+@login_required(login_url='login')
+def admin_perfil(request,id):
+    user = User.objects.get(id = id)
+    form = CreateUserForm
+    return render(request, 'Principal/admin_perfil.html', {'form':form, 'id':user.id})
+
+@login_required(login_url='login')
+def modificar_perfil(request,id):
+    user = User.objects.get(id = id)
+    if request.method == 'POST':
+        print(request.POST)
+        form = UserCreationForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')
+
 
 @login_required(login_url='login')
 @user_passes_test((lambda u: u.is_superuser),login_url='login')
