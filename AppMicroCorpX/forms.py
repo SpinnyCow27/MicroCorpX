@@ -62,6 +62,7 @@ class ClienteForm(forms.ModelForm):
             ),
         }
 
+
 #Este es para el producto
 class ProductoForm(forms.ModelForm):
     class Meta:

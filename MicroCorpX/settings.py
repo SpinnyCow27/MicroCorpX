@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+LOGIN_URL = 'login/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -126,12 +127,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = [
     'C:/proyectos_django/MicroCorpX/AppMicroCorpX/static',
 ]
 
 MEDIA_URL =  '/media/'
-MEDIA_ROOT = 'C:/proyectos_django/MicroCorpX/AppMicroCorpX/static/img/media'
+MEDIA_ROOT = 'C:/proyectos_django/MicroCorpX/AppMicroCorpX/static/img/media/'
 
 #Configuración de cuenta correo SMTP
 

@@ -60,18 +60,18 @@ class Producto(models.Model):
     precio = models.IntegerField()
     url = models.ImageField(default='not_found')
     #stock = models.IntegerField()
-    gen_nombre = models.ForeignKey('Genero_producto', on_delete=models.CASCADE,default="")
+    genero_producto = models.ForeignKey('Genero_producto', on_delete=models.CASCADE,default='')
     class Meta:
         db_table = "producto"
 
 
 #TABLA DEL GENERO DE LOS PRODUCTOS, donde si el genero es 1, puede ser accion o 2 es rpg <- ejemplo
 class Genero_producto(models.Model):
-    gen_nombre = models.CharField(max_length=100)
+    genero_producto = models.CharField(max_length=100)
     class Meta:
         db_table = "genero_producto"
-    def str(self):
-        return u'{0}'.format(self.gen_nombre)
+    def __str__(self):
+        return u'{0}'.format(self.genero_producto)
 
 
 #TABLA INTERSECCIÓN DE VENTA Y PRODUCTO (VENTA_PRODUCTO)

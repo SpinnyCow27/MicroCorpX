@@ -100,7 +100,7 @@
                             <a href="/registro"><i class="fa fa-address-card-o fa-lg" aria-hidden="true"></i></a>
                         </div><br><br>
                         {% for message in messages %}
-                        <p>{{message}}</p>
+                        <p><b>{{message}}</b></p>
                         {% endfor %}
                         <p>Olvidó su contraseña? <a href="{% url 'password_reset'%}">Actualiza tu contraseña!</a></p>     
                         </form>

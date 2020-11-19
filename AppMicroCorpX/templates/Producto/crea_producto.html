@@ -58,7 +58,7 @@
         <form method="POST" action="/crea_producto/" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="table-responsive">
-                <table>
+                <table class="table-striped">
                     <tr>
                         <td>Nombre del Producto: </td>
                         <td>{{form.nombre_producto}}</td>
@@ -78,20 +78,51 @@
                     <tr>
                         <td>Género del Producto</td>
                         <!--<td><input type="number" min="1" max="3"></td>-->
-                        <td>{{form.gen_nombre}}</td>
+                        <td>{{form.genero_producto}}</td>
                     </tr>
                     <tr>
                         <td>Seleccionar Imagen para el juego:</td>
                         <td>{{form.url}}</td>
                     </tr>
                         
-                    <tr>
-                        <td><input class="btn btn-primary" type="submit" value="Grabar"></td>
-                    </tr>
+                    <!--<tr>
+                        <td><center><input class="btn btn-primary" type="submit" value="Grabar"></center></td>
+                    </tr>-->
                     
                 </table>
+                <center><input class="btn btn-primary" type="submit" value="Grabar"></center>
             </div>
         </form>
-    </div>
+    </div><br><br>
+    <div class="container">
+    <h1><b>LISTADO DE CLIENTES</b></h1>
+    <table class="table-bordered">
+    <thead>
+        <tr>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+            <th>DESCRIPCIÓN</th>
+            <th>GÉNERO PRODUCTO</th>
+            <th>IMAGEN PRODUCTO</th>
+            <th colspan="2">ACCIONES</th>
+        </tr>
+        {% for pro in productos %}
+        <tr>
+            <td>{{pro.nombre_producto}}</td>
+            <td>${{pro.precio}}</td>
+            <td>{{pro.descripcion}}</td>
+            <td>{{pro.genero_producto}}</td>
+            <td><center><img src="/media/{{pro.url}}" width="50"></center></td>
+            <td>
+                <a href="/edit/{{cli.id_cliente}}"> | <i class="fas fa-pencil-alt"></i> | </a>
+            </td>
+            <td>
+                <a href="/delete/{{cli.id_cliente}}"> | <i class="far fa-trash-alt"></i> |</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </thead>
+</table>
+</div>
 </body>
 </html>
