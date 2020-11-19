@@ -34,7 +34,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'contacto' %}">CONTACTO</a>
                     </li>
                     {% if user.is_superuser %}
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'crea_producto' %">ADMIN. PRODUCTOS</a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'admin_producto' %">ADMIN. PRODUCTOS</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated %}
@@ -89,10 +89,18 @@
                         <td><center><input class="btn btn-primary" type="submit" value="Grabar"></center></td>
                     </tr>-->
                     
-                </table>
-                <center><input class="btn btn-primary" type="submit" value="Agregar Producto"></center>
+                </table><center>
+                <table>
+                    <tr>
+                        <td><center><input class="btn btn-primary" type="submit" value="Agregar Producto"></center></td>
+                    </tr>
+                    <tr><br>
+                        <td><br><a href="javascript:history.back(1)" class="btn btn-primary" style="margin-left: 45px;">Volver</a></td>
+                    </tr>
+                </table></center>
             </div>
         </form>
+        
     </div>
 </div>
 </body>

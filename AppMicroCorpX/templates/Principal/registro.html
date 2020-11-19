@@ -62,32 +62,32 @@
                         <form role="form" action="#" method="POST" id="frmRegistro">
                           {% csrf_token %}
                             <div class="form-label-group" id="fgFirst_name">
-                                <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Ingrese su Nombre" > 
+                                <input required type="text" name="first_name" id="first_name" class="form-control" placeholder="Ingrese su Nombre" > 
                                 <label for="first_name">Ingrese su Nombre</label>
                             </div>
     
                             <div class="form-label-group" name id="fgLast_name">
-                                <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Ingrese su Apellido Paterno" >
+                                <input required type="text" name="last_name" id="last_name" class="form-control" placeholder="Ingrese su Apellido Paterno" >
                                 <label for="last_name">Ingrese su Apellido Paterno</label>
                             </div>
                             
                             <div class="form-label-group" id="fgUsername">
-                              <input type="text" name="username" id="username" class="form-control" placeholder="Ingrese su Nombre" > 
+                              <input required type="text" name="username" id="username" class="form-control" placeholder="Ingrese su Nombre" > 
                               <label for="username">Ingrese un Usuario</label>
                             </div>
 
                             <div class="form-label-group" id="fgEmail">
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Ingrese su Correo" >
+                                <input required type="text" name="email" id="email" class="form-control" placeholder="Ingrese su Correo" >
                                 <label for="email">Ingrese su Correo</label>
                             </div>
 
                             <div class="form-label-group" id="fgPassword1">
-                              <input type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese su Contraseña" >
+                              <input required type="password" name="password1" id="password1" class="form-control" placeholder="Ingrese su Contraseña" >
                               <label for="password1">Ingrese su Contraseña</label>
                             </div>
 
                             <div class="form-label-group" id="fgPassword2">
-                              <input type="password" name="password2" id="password2" class="form-control" placeholder="Ingrese su Contraseña" >
+                              <input required type="password" name="password2" id="password2" class="form-control" placeholder="Ingrese su Contraseña" >
                               <label for="password2">Confirme su Contraseña</label>
                             </div>
 

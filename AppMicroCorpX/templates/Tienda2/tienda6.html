@@ -34,7 +34,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'contacto' %}">CONTACTO</a>
                     </li>
                     {% if user.is_superuser %}
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'crea_producto' %}">ADMIN. PRODUCTOS</a>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'admin_producto' %}">ADMIN. PRODUCTOS</a>
                     </li>
                     {% endif %}
                     {% if user.is_authenticated %}
@@ -54,8 +54,11 @@
             </div>
         </div>
     </nav><br><br><br><br><br><br>
+    <div class="container">
+      <center><h1><b>Bienvenido a la Tienda!</b></h1></center><hr>
+    </div>
         <div class="catalogue">
-          <div class="row">-->
+          <div class="row">
       
           <!-- for listado-->
           {% for pro in producto %}
@@ -67,15 +70,20 @@
                 <div class=" product-grid">
                   <div class="image">
                     <a href="#">
-                      <img src="media/{{pro.url}}" class="w-100" width="303" height="384">
+                      <img src="media/{{pro.url}}" class="w-100" width="435" height="553">
                       <div class="overlay">
                         <div class="detail">{{pro.info}}</div>
                       </div>
                     </a>
                   </div>
-                  <h5 class="text-center">{{pro.nombre}}</h5>
-                  <h5 class="text-center">${{pro.precio}}</h5>
-                  <a href="#" class="btn buy">COMPRAR</a>
+                  
+                  <h5 class="card-title text-center">{{pro.nombre_producto}}</h5>
+                  <h5 class="card-text text-center">VALOR:</h5><h5 class="text-center"> ${{pro.precio}}</h5>
+                  <div class="card-footer text-center">
+                    <center><a href="#" class="btn btn-primary">DETALLES</a></center>
+                    <!--<center><a href="/vista_producto/{{pro.id_producto}}" class="btn btn-primary">DETALLES</a></center>-->
+                  </div>
+                  </span>
                 </div>
               </div>
       

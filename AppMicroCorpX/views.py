@@ -70,7 +70,7 @@ def loginPage(request):
 
 
 def tienda(request):
-    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
+    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})
 
 def tienda6(request):
     form = ProductoForm()
@@ -151,10 +151,16 @@ def edita_producto(request, id):
 def elimina_producto(request, id):
     pro = Producto.objects.get(id_producto=id)
     pro.delete()
-    return redirect('crea_producto')
+    return redirect('admin_producto')
+
+def vista_producto(request, id):
+    pro = Producto.objects.get(id_producto=id)
+    form = ProductoForm(instance=pro)
+    return render(request,'Producto/vista_producto.html', {'form':form, 'id_producto':pro_id.producto})
 
 
 @login_required(login_url='login')
+@user_passes_test((lambda u: u.is_superuser),login_url='login')
 def productos(request):
     form = ProductoForm()
     producto = Producto.objects.all()

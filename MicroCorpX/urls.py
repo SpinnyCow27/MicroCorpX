@@ -34,6 +34,7 @@ urlpatterns = [
     path('tienda6', views.tienda6, name='tienda6'),
 
     #Producto
+    path('vista_producto/<int:id>',views.vista_producto, name="vista_producto"),
     path('admin_producto', views.admin_producto, name="admin_producto"),
     path('crea_producto/', views.crea_producto, name="crea_producto"),
     path('edita_producto/<int:id>', views.edita_producto),
