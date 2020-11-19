@@ -31,6 +31,7 @@ urlpatterns = [
     path('perfil/', views.perfil, name="perfil"),
     path('index2/', views.index2, name="index2"),
     path('tienda', views.tienda, name='tienda'),
+    path('tienda6', views.tienda6, name='tienda6'),
 
     #Producto
     path('crea_producto/', views.crea_producto, name="crea_producto"),

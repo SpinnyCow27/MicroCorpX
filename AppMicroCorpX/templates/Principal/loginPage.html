@@ -21,26 +21,27 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/index2">Página principal
+            <a class="nav-link" href="{% url 'index2' %}">Página principal
                   <span class="sr-only">(current)</span>
                 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/tienda">Tienda</a>
+            <a class="nav-link" href="{% url 'tienda' %}">Tienda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contacto">Contacto</a>
+            <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
           </li>
           <li>
             <p style="color:white">‎      ‏‏‎‎      ‏‏‎‎      ‏‏‎‎      ‏‏‎‎      ‏‏‎‎      ‏‏‎</p>
           </li>
           <li class="nav-item">
-            <span class="tamano"><a class="nav-link" href="/login"><i class="fa fa-user-circle" aria-hidden="true">  Iniciar Sesión</i></a></span>
+            <span class="tamano"><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-user-circle" aria-hidden="true">  Iniciar Sesión</i></a></span>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div style="view;/* background-image: url('/static/img/Fondo_Registro.png'); */" width="1920" height="1080">
         <div class="container-fluid">
             <div class="row no-gutter">
             <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -94,10 +95,10 @@
                         <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Iniciar Sesión</button>                   
                         <br/>
                         <div class="text-center">
-                            <a href="/registro">¿Aún no se ha creado una Cuenta? Registrarse!</a>
+                            <a href="{% url 'registro' %}">¿Aún no se ha creado una Cuenta? Registrarse!</a>
                         </div>
                         <div class="centrar2">
-                            <a href="/registro"><i class="fa fa-address-card-o fa-lg" aria-hidden="true"></i></a>
+                            <a href="{% url 'registro' %}"><i class="fa fa-address-card-o fa-lg" aria-hidden="true"></i></a>
                         </div><br><br>
                         {% for message in messages %}
                         <p><b>{{message}}</b></p>
@@ -111,5 +112,6 @@
             </div>
             </div>
         </div>
+      </div>
     </body>
 </html>

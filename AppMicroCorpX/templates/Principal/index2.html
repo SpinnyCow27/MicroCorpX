@@ -33,16 +33,16 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">MÁS VENDIDOS</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/tienda">TIENDA</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'tienda' %}">TIENDA</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">CONTACTO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'contacto' %}">CONTACTO</a>
                         </li>
                         {% if user.is_superuser %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/crea_producto">ADMIN. PRODUCTOS</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'crea_producto' %}">ADMIN. PRODUCTOS</a>
                         </li>
                         {% endif %}
                         {% if user.is_authenticated %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/perfil">PERFIL</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'perfil' %}">PERFIL</a>
                         </li>
                         {% else %}
                         <li>
@@ -64,7 +64,7 @@
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 <a href="https://www.xbox.com/es-CL">
-                <img class="masthead-avatar mb-5" src="assets/img/1200px-Xbox_logo_(2019).svg.png" alt="">
+                <img class="masthead-avatar mb-5" src="{% static 'img/1200px-Xbox_logo_(2019).svg.png' %}" alt="">
                 </a>
                 <!-- Masthead Heading-->
                 {% if user.is_authenticated %}
@@ -92,13 +92,13 @@
                 </ol>
                 <div class="carousel-inner"> 
                   <div class="carousel-item active">
-                    <img class="d-block w-100" data-toggle="modal" data-target="#portfolioModal01" src="https://www.hd-tecnologia.com/imagenes/articulos/2019/03/Halo-The-Master-Chief-Collection-en-PC-podr%C3%ADa-terminar-de-lanzarse-a-fin-de-a%C3%B1o.jpg" alt="First slide">
+                    <img class="d-block w-100" data-toggle="modal" data-target="#portfolioModal01" src="{% static 'img/HaloTMCC.jpg' %}" alt="First slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" data-toggle="modal" data-target="#portfolioModal02" src="https://images5.alphacoders.com/929/thumb-1920-929552.jpg" alt="Second slide">
+                    <img class="d-block w-100" data-toggle="modal" data-target="#portfolioModal02" src="{% static 'img/ForzaHorizon4.jpg'%}" alt="Second slide">
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" data-toggle="modal" data-target="#portfolioModal03" src="https://fotografias-neox.atresmedia.com/clipping/cmsimages01//2020/05/04/83587D66-FC23-4584-82B6-FDCFD968CCC8/default.jpg" alt="Third slide">
+                    <img class="d-block w-100" data-toggle="modal" data-target="#portfolioModal03" src="{% static 'img/ACValhalla.jpg'%}" alt="Third slide">
                   </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -523,28 +523,7 @@
                 </div>
             </div>
         </section>
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="mb-4">UBICACIÓN</h4>
-                        <p class="pre-wrap lead mb-0">Antonio Varas 666</p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="mb-4">REDES SOCIALES</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/"><i class="fab fa-fw fa-facebook-f"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/?lang=es"><i class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://cl.linkedin.com/"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="mb-4">Xbox Series X</h4>
-                        <p class="pre-wrap lead mb-0">Power Your Dreams</p>
-                        <p class="pre-wrap lead mb-0">La nueva consola de Xbox estará a la venta este 22 de Noviembre!</p>
-                        <a href="https://www.xbox.com/es-CL/consoles/xbox-series-x"><p class="pre-wrap lead mb-0">Ver más</p></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% include "footer.html" %}
         <!-- Copyright Section-->
         <section class="copyright py-4 text-center text-white">
             <div class="container"><small class="pre-wrap">Copyright © Hitachi MicroCorp 2020  </small></div>
@@ -560,6 +539,6 @@
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{% static 'js/Principal/js/scripts.js' %}"></script>
     </body>
 </html>

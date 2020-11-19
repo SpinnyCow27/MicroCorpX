@@ -11,7 +11,7 @@ from AppMicroCorpX.forms import CreateUserForm, ClienteForm, ProductoForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 
@@ -70,8 +70,27 @@ def loginPage(request):
 
 
 def tienda(request):
-   return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
+    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})   
 
+def tienda6(request):
+    form = ProductoForm()
+    producto = Producto.objects.all()
+
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('/productos')
+            except:
+                pass
+    else:
+        form = ProductoForm()
+
+    context = {'form':form, 'producto': producto}
+    return render(request, 'Tienda2/tienda6.html',context)
+
+    
 @login_required(login_url='login')
 def perfil(request):
     #user = request.GET['username']
@@ -81,7 +100,8 @@ def perfil(request):
     #Este me trae los datos del usuario
     #context = {'user':user}
 
-@login_required
+@login_required(login_url='login')
+@user_passes_test((lambda u: u.is_superuser),login_url='login')
 def crea_producto(request):
     form = ProductoForm()
     productos = Producto.objects.all()
@@ -100,7 +120,12 @@ def crea_producto(request):
     context = {'form':form, 'productos':productos}
     return render(request, 'Producto/crea_producto.html', context)
 
-@login_required
+@login_required(login_url='login')
+@user_passes_test((lambda u: u.is_superuser),login_url='login')
+def edita_producto(request):
+    return render(request, 'Producto/edita_producto.html')
+
+@login_required(login_url='login')
 def productos(request):
     form = ProductoForm()
     producto = Producto.objects.all()
@@ -119,9 +144,7 @@ def productos(request):
     context = {'form':form, 'producto': producto}
     return render(request, 'productos.html',context)
 
-@login_required
-def edita_producto(request):
-    return render(request, 'Producto/edita_producto.html')
+
     
 
 
