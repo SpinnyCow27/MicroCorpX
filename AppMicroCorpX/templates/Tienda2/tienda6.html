@@ -68,21 +68,37 @@
               <div class="card">
       
                 <div class=" product-grid">
+                  {% if user.is_superuser %}
                   <div class="image">
-                    <a href="#">
+                    <a href="{% url 'admin_producto' %}">
                       <img src="media/{{pro.url}}" class="w-100" width="435" height="553">
                       <div class="overlay">
                         <div class="detail">{{pro.info}}</div>
                       </div>
                     </a>
                   </div>
+                    {% else %}
+                    <div class="image">
+                      <a href="#">
+                        <img src="media/{{pro.url}}" class="w-100" width="435" height="553">
+                        <div class="overlay">
+                          <div class="detail">{{pro.info}}</div>
+                        </div>
+                      </a>
+                    </div>
+                  {% endif %}
                   
                   <h5 class="card-title text-center">{{pro.nombre_producto}}</h5>
                   <h5 class="card-text text-center">VALOR:</h5><h5 class="text-center"> ${{pro.precio}}</h5>
                   <div class="card-footer text-center">
+                  {% if user.is_superuser %}
+                  <center><a href="{% url 'admin_producto' %}" class="btn btn-primary">DETALLES</a></center>
+                  {% else %}
                     <center><a href="#" class="btn btn-primary">DETALLES</a></center>
                     <!--<center><a href="/vista_producto/{{pro.id_producto}}" class="btn btn-primary">DETALLES</a></center>-->
-                  </div>
+                  
+                  {% endif %}
+                </div>
                   </span>
                 </div>
               </div>

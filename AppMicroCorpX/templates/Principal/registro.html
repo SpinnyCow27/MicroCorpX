@@ -48,7 +48,7 @@
       </div>
     </div>
   </nav>
-  <div style="view;/* background-image: url('/static/img/Fondo_Registro.png'); */" width="1920" height="1080"></div>
+  <div style="background-image: url('/static/img/Fondo_Registro.png'); " width="1920" height="1080">
         <div class="container-fluid">
             <div class="row no-gutter">
             <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
@@ -57,7 +57,7 @@
                 <div class="container">
                     <div class="row">
                     <div class="col-md-9 col-lg-8 mx-auto">
-                        <h3 class="login-heading mb-4">Bienvenido! Aquí podrás Registrarte</h3>
+                        <h3 class="login-heading mb-4" style="color: white"><b>Bienvenido! Aquí podrás Registrarte</b></h3>
                         
                         <form role="form" action="#" method="POST" id="frmRegistro">
                           {% csrf_token %}
@@ -99,7 +99,7 @@
                             <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Registrar</button>
                             
                             <div class="centrar">
-                                <a href="javascript:history.back(1)"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"> Volver</i></a>
+                                <a href="javascript:history.back(1)"><i class="fa fa-arrow-circle-o-left" aria-hidden="true" style="color: white"> Volver</i></a>
                             </div>
                             {% for message in messages %}
                             <p><b>{{message}}</b></p>

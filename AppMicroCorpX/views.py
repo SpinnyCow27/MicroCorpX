@@ -70,9 +70,6 @@ def loginPage(request):
         return render(request,'Principal/loginPage.html')
 
 
-def tienda(request):
-    return render(request, 'Tienda2/tienda.html', {'title':'tienda'})
-
 def tienda6(request):
     form = ProductoForm()
     producto = Producto.objects.all()
@@ -153,7 +150,7 @@ def modificar(request,id):
     pro = Producto.objects.get(id_producto=id)
     if request.method == 'POST':
         print(request.POST)
-        form = ProductoForm(request.POST, instance=pro)
+        form = ProductoForm(request.POST, request.FILES, instance=pro)
         if form.is_valid():
             form.save()
             return redirect('admin_producto')

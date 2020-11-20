@@ -41,16 +41,16 @@
       </div>
     </div>
   </nav>
-  <div style="view;/* background-image: url('/static/img/Fondo_Registro.png'); */" width="1920" height="1080">
+  <div style="background-image: url('/static/img/Fondo_Registro.png');"width="1920" height="704">
         <div class="container-fluid">
             <div class="row no-gutter">
-            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="d-none d-md-flex col-md-4 col-lg-6"></div>
             <div class="col-md-8 col-lg-6">
                 <div class="login d-flex align-items-center py-5">
                 <div class="container">
                     <div class="row">
                     <div class="col-md-9 col-lg-8 mx-auto">
-                        <h3 class="login-heading mb-4">Bienvenido! Aquí puedes Iniciar Sesión</h3>
+                        <h3 class="login-heading mb-4" style="color: white"><b>Bienvenido! Aquí puedes Iniciar Sesión</b></h3>
                         
                         <!--<form action="" method="post">
                           {% csrf_token %}
@@ -103,7 +103,7 @@
                         {% for message in messages %}
                         <p><b>{{message}}</b></p>
                         {% endfor %}
-                        <p>Olvidó su contraseña? <a href="{% url 'password_reset'%}">Actualiza tu contraseña!</a></p>     
+                        <p style="color: white;">Olvidó su contraseña? <a href="{% url 'password_reset'%}">Actualiza tu contraseña!</a></p>     
                         </form>
                     </div>
                     </div>
