@@ -24,6 +24,8 @@ class Cliente(models.Model):
     mail_cli = models.EmailField()
     direccion_cli = models.CharField(max_length=200)
     telefono_cli = models.CharField(max_length=16)
+    usuario_cli = models.CharField(max_length=150)
+    password_cli = models.CharField(max_length=128)
 #    id_tipo_usuario_fk = models.ForeignKey('Tipo_usuario', on_delete=models.CASCADE)
     class Meta:
         db_table = "cliente"
@@ -36,39 +38,40 @@ class Cliente(models.Model):
 #    tu_nombre = models.CharField(max_length=40)
 
 #TABLA ADMINISTRADOR
-class Administrador(models.Model):
+#class Administrador(models.Model):
     #El Autofield es un autoincremento
-    id_adm = models.AutoField(primary_key=True)
-    rut_adm = models.CharField(max_length=13)
-    nombre_adm = models.CharField(max_length=25)
-    apellido_adm = models.CharField(max_length=35)
-    mail_adm = models.EmailField()
-    direccion_adm = models.CharField(max_length=200)
-    telefono_adm = models.CharField(max_length=16)
+#    id_adm = models.AutoField(primary_key=True)
+#    rut_adm = models.CharField(max_length=13)
+#    nombre_adm = models.CharField(max_length=25)
+#    apellido_adm = models.CharField(max_length=35)
+#    mail_adm = models.EmailField()
+#    direccion_adm = models.CharField(max_length=200)
+#    telefono_adm = models.CharField(max_length=16)
 #    id_tipo_usuario_fk = models.ForeignKey('Tipo_usuario', on_delete=models.CASCADE)
-    class Meta:
-        db_table = "administrador"
+#    class Meta:
+#        db_table = "administrador"
 
 
 #TABLA DE PRODUCTO
 class Producto(models.Model):
     id_producto = models.AutoField(primary_key=True)
     nombre_producto = models.CharField(max_length=40)
-    precio = models.IntegerField()
     descripcion = models.TextField()
-    stock = models.IntegerField()
-    id_genero_producto_fk = models.ForeignKey('Genero_producto', on_delete=models.CASCADE)
-    id_adm_fk = models.ForeignKey('Administrador', on_delete=models.CASCADE)
+    precio = models.IntegerField()
+    url = models.ImageField(default='not_found')
+    #stock = models.IntegerField()
+    genero_producto = models.ForeignKey('Genero_producto', on_delete=models.CASCADE,default='')
     class Meta:
         db_table = "producto"
 
 
 #TABLA DEL GENERO DE LOS PRODUCTOS, donde si el genero es 1, puede ser accion o 2 es rpg <- ejemplo
 class Genero_producto(models.Model):
-    id_genero_producto = models.AutoField(primary_key=True)
-    gen_nombre = models.CharField(max_length=40)
+    genero_producto = models.CharField(max_length=100)
     class Meta:
         db_table = "genero_producto"
+    def __str__(self):
+        return u'{0}'.format(self.genero_producto)
 
 
 #TABLA INTERSECCIÓN DE VENTA Y PRODUCTO (VENTA_PRODUCTO)
