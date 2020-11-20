@@ -27,15 +27,29 @@
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/index2">PÁGINA PRINCIPAL</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'index2' %}">P. PRINCIPAL</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/tienda">TIENDA</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'tienda6' %}">TIENDA</a>
                         </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/contacto">CONTACTO</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'contacto' %}">CONTACTO</a>
                         </li>
+                        {% if user.is_superuser %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'admin_producto' %}">ADMIN. PRODUCTOS</a>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'perfil' %}">PERFIL</a>
+                        </li>
+                        {% else %}
                         <li>
-                            <span class="tamano"><a class="nav-link" href="login.html"><i class="far fa-user"></i> Iniciar Sesión</a></span>
+                            <span class="tamano"><a class="nav-link" href="{% url 'login' %}"><i class="far fa-user"></i> Iniciar Sesión</a></span>
                         </li>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <li>
+                            <span class="tamano"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></span>
+                        </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -87,28 +101,7 @@
                 </div>
             </div>
         </section>
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <!-- Footer Location-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="mb-4">UBICACIÓN</h4>
-                        <p class="pre-wrap lead mb-0">Antonio Varas 666</p>
-                    </div>
-                    <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="mb-4">REDES SOCIALES</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/"><i class="fab fa-fw fa-facebook-f"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/?lang=es"><i class="fab fa-fw fa-twitter"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://cl.linkedin.com/"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                    </div>
-                    <!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="mb-4">Xbox Series X</h4>
-                        <p class="pre-wrap lead mb-0">Power Your Dreams</p>
-                        <p class="pre-wrap lead mb-0">La nueva consola de Xbox estará a la venta este 22 de Noviembre!</p>
-                        <a href="https://www.xbox.com/es-CL/consoles/xbox-series-x"><p class="pre-wrap lead mb-0">Ver más</p></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        {% include "footer.html" %}
         <!-- Copyright Section-->
         <section class="copyright py-4 text-center text-white">
             <div class="container"><small class="pre-wrap">Copyright © Hitachi MicroCorp 2020  </small></div>
@@ -124,6 +117,6 @@
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{% static 'js/Principal/js/scripts.js' %}"></script>
     </body>
 </html>
